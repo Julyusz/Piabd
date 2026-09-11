@@ -1,5 +1,0 @@
-1. logowanie: mysql -uroot -p 
-2. wybór bazy: use nazwa;
-3. tworzenie baz:
-4.tworzenie tabeli
-5.pokazywanie zawartości tabeli: describe
