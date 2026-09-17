@@ -3,3 +3,23 @@
 3. tworzenie baz: create database nazwa;
 4.tworzenie tabeli: create table nazwa; 
 5.pokazywanie zawartości tabeli: describe nazwatabeli;
+6. /* komentarz */ : robi to samo co // w html
+SELECT * FROM auta WHERE cena BETWEEN 10 AND 20; : pokazuje tabele spełniające wymagania wartości zawartej pomiędzy dwoma wybranymi wartościami. Można też użyć atrybutu NOT BETWEEN który jest odwrotnością atrybutu BETWEEN. 
+SELECT * FROM `auto` WHERE kolor BETWEEN 'A' AND 'N'; /* kolory od A do C */
+
+
+SELECT * FROM 4bgr1.auto LIMIT 200;
+wybierz wszystko(można wybrać które kolumny się wyświetlą) z baza.tabela 					limit 200 wierszy
+			
+			WHERE paliwo = "D" AND typ = "combi" AND rocznik < 2000;
+			gdzie warunek = "nazwa" i warunek = "nazwa" i warunek mniejszy niż parametr
+ORDER BY `auto`.`cena` DESC
+	 		                ASC
+posortuj		         malejąco
+        		         rosnąco
+
+			WHERE atrybut >= x AND atrybut <= x
+
+/*
+komentarz 
+*/
