@@ -23,3 +23,9 @@ posortuj		         malejąco
 /*
 komentarz 
 */
+
+INSERT INTO `auto` (rocznik) VALUES (2001); : wkłada w tabeli pod nazwą 'auto' w kolumnie rocznik wartość 2001. służy on do tworzenia nowego wiersza.
+
+UPDATE `auto` SET rocznik=2005 WHERE auto_id = 42; : aktualizuje już istniejący wiersz w tabeli, aktualizuje tabele o nazwie `auto` ustawia parametr rocznik na wartość 2005 w wierszu który ma auto_id o numerze 42.
+
+DELETE FROM `auto` WHERE auto_id = 42 : usuwa cały wiersz w tabeli `auto` który ma auto_id o numerze 42.
