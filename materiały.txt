@@ -29,3 +29,34 @@ INSERT INTO `auto` (rocznik) VALUES (2001); : wkłada w tabeli pod nazwą 'auto'
 UPDATE `auto` SET rocznik=2005 WHERE auto_id = 42; : aktualizuje już istniejący wiersz w tabeli, aktualizuje tabele o nazwie `auto` ustawia parametr rocznik na wartość 2005 w wierszu który ma auto_id o numerze 42.
 
 DELETE FROM `auto` WHERE auto_id = 42 : usuwa cały wiersz w tabeli `auto` który ma auto_id o numerze 42.
+
+03. wyświetl uczniów mieszkających w Łodzi
+04. wyświtl uczniów z Łodzi, których hobby to programowanie
+05. Wyświetl uczniów mieszkających w Łodzi lub w Warszawie
+06. wyświetl uczniów z 3 wskazanych miejscowości; 	SELECT * FROM `uczniowie` WHERE miejscowosc IN ( 'Łódź', 'Kraków', 'Warszawa');
+07. wyświetl uczniów którzy nie mieszkają w warszawie ani Krakowie; 	SELECT imie, nazwisko, miejscowosc FROM uczniowie WHERE miejscowosc NOT IN (
+    'Kraków', 
+    'Warszawa'
+) ORDER BY miejscowosc ASC;
+
+08. Wyświetl uczniów których nazwisko zaczyna się od litery K; 
+	SELECT *
+	FROM uczniowie 
+	WHERE nazwisko LIKE '%K%' //% ozanczaja ze przed lub za K mogą być dowolne znaki i dowolna ich ilość.
+	
+	LIKE '__i%' 
+09. Wyświetl uczniów urodzonych w latach 2007-2008
+10. wyświetl wszystkie miejscowości bez powtórzeń; 
+	SELECT DISTINCT miejscowosc 
+FROM uczniowie 
+ORDER BY miejscowosc; /* wyklucza duplikaty nazw miejscowosci, wyswietla tylko po jednej z nich/wyświetl wszystkie miejscowości bez powtórzeń
+11. policz wszystkich uczniów z Łodzi; 
+SELECT COUNT(*) AS chlopaki_fajne_z_lodzi FROM uczniowie WHERE miejscowosc = Łódź
+12. wyświetl hobby które wystęoują u co najmniej 10 uczniów;
+
+SELECT hobby
+	COUNT(*) AS liczba_uczniow
+FROM uczniowie 
+GROUP BY hobby
+HAVING COUNT(*) >=10
+ORDER BY liczba_uczniow DESC;
