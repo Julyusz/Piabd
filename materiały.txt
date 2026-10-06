@@ -60,3 +60,9 @@ FROM uczniowie
 GROUP BY hobby
 HAVING COUNT(*) >=10
 ORDER BY liczba_uczniow DESC;
+
+min() znajduje minimalna wartość
+max() zanjduje maksymalna wartość
+SELECT COUNT(*) FROM uczniowie WHERE hobby = "informatyka"; //liczy ile ludzi ma hobby "informatyka", pokazuje sam wynik
+SELECT SUM(cena) AS calkowita_wartosc_aut FROM auto;  //sumuje ile warte są łącznie wszystkie auta z tabeli aut
+SELECT AVG(cena) AS srednia_cena FROM auto; //wypisuje jaka jest srednia wartość auta z tabeli auta
