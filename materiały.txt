@@ -3,6 +3,7 @@
 3. tworzenie baz: create database nazwa;
 4.tworzenie tabeli: create table nazwa; 
 5.pokazywanie zawartości tabeli: describe nazwatabeli;
+primary-tabela identyfikator nadawana przez baze danych, nie mozna jej usunac. sluzy do odroznienia tabeli od innych tabeli. Mozna tez uzyc maila albo telefonu jako primary key.
 6. /* komentarz */ : robi to samo co // w html
 SELECT * FROM auta WHERE cena BETWEEN 10 AND 20; : pokazuje tabele spełniające wymagania wartości zawartej pomiędzy dwoma wybranymi wartościami. Można też użyć atrybutu NOT BETWEEN który jest odwrotnością atrybutu BETWEEN. 
 SELECT * FROM `auto` WHERE kolor BETWEEN 'A' AND 'N'; /* kolory od A do C */
@@ -29,6 +30,8 @@ INSERT INTO `auto` (rocznik) VALUES (2001); : wkłada w tabeli pod nazwą 'auto'
 UPDATE `auto` SET rocznik=2005 WHERE auto_id = 42; : aktualizuje już istniejący wiersz w tabeli, aktualizuje tabele o nazwie `auto` ustawia parametr rocznik na wartość 2005 w wierszu który ma auto_id o numerze 42.
 
 DELETE FROM `auto` WHERE auto_id = 42 : usuwa cały wiersz w tabeli `auto` który ma auto_id o numerze 42.
+
+
 
 03. wyświetl uczniów mieszkających w Łodzi
 04. wyświtl uczniów z Łodzi, których hobby to programowanie
@@ -66,3 +69,22 @@ max() zanjduje maksymalna wartość
 SELECT COUNT(*) FROM uczniowie WHERE hobby = "informatyka"; //liczy ile ludzi ma hobby "informatyka", pokazuje sam wynik
 SELECT SUM(cena) AS calkowita_wartosc_aut FROM auto;  //sumuje ile warte są łącznie wszystkie auta z tabeli aut
 SELECT AVG(cena) AS srednia_cena FROM auto; //wypisuje jaka jest srednia wartość auta z tabeli auta
+
+mysqladmin -uroot shutdown //*wylacza sewer
+mysqld --console	//*uruchomienie serwera mysql jako osobna aplikacje
+net stop nazwa_uslugi //*zatrzymuje konkretną usługę
+mysql -uroot --password==haslo
+mysql -uroot -phasło
+mysql -uroot -p
+quit //*wyjscie z bazy danych/wylogowanie sie
+create database nazwa_bazy;
+drop database nazwa_bazy //*usuwanie bazy danych
+mysql -u nazwa_uzytkownika -phaslo nazwa_bazy
+mysql nazwa_bazy -u nazwa_uzytkownika -phaslo //*logowanie od razu do konkretnej bazy danych 
+ create user nazwa_uzytkownika identified by 'haslo'; //* tworzy nowego uzytkownika (dziala w xammpie w przeiwienstwie do wiekszosci polecen
+
+drop user uzytkownik, uzytkownik2; //*usuwa wybranego/nych użytkownika/ków
+rename user nazwa to nazwa_nowy; //* zmienia nazwe uzytkownika na wybrana inna
+set password for nazwa_uzytkownika = password('haslo); //* ustawia/zmiania hasło dla wybranego użytkownika
+grant usage on * to nazwa_użytkownika; //* nadawanie praw do konta użytkownika
+grant usage on * to nazwa_uzytkownik identified by 'haslo'; //* inny sposob na zmiane/ustawienie hasła
