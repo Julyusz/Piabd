@@ -88,3 +88,8 @@ rename user nazwa to nazwa_nowy; //* zmienia nazwe uzytkownika na wybrana inna
 set password for nazwa_uzytkownika = password('haslo); //* ustawia/zmiania hasło dla wybranego użytkownika
 grant usage on * to nazwa_użytkownika; //* nadawanie praw do konta użytkownika
 grant usage on * to nazwa_uzytkownik identified by 'haslo'; //* inny sposob na zmiane/ustawienie hasła
+select * from osoby order by nazwisko limit 4, 3;		//*pobieranie wierszy od konkretnej pozycji, od 4 rekordu pokaz następne 3 rekordy
+delete from nazwa_tabeli; //*usuwa wszystkie dane z tabeli
+delete from nazwa_tabeli where id in (3, 5, 7); //*usuwanie kilku wybranych rekordów
+delete from nazwa_tabeli where id between 3 and 5;		usuwanie wierszy z określonego przedziału
+delete from auto where paliwo='G'; //* usuwa wszystkie rekordy w których paliwo jest równe G
