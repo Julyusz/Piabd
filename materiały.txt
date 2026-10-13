@@ -93,3 +93,15 @@ delete from nazwa_tabeli; //*usuwa wszystkie dane z tabeli
 delete from nazwa_tabeli where id in (3, 5, 7); //*usuwanie kilku wybranych rekordów
 delete from nazwa_tabeli where id between 3 and 5;		usuwanie wierszy z określonego przedziału
 delete from auto where paliwo='G'; //* usuwa wszystkie rekordy w których paliwo jest równe G
+
+
+poradnik git
+.pdf
+spis treści 
+numery stron
+nagłówki
+zrzuty ekranu podpisane i ponumerowane
+(jak pisac poprwanie sprawozdanie)
+
+
+dodac kolumne ze zdj do tabeli uczniowie w domu i wyeksportowac i zobaczyc jaka jest roznica przed i po dodaniu zdjecia i wykonac back up z uzyciem mysql dump
