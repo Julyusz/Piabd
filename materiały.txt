@@ -57,6 +57,7 @@ ORDER BY miejscowosc; /* wyklucza duplikaty nazw miejscowosci, wyswietla tylko p
 SELECT COUNT(*) AS chlopaki_fajne_z_lodzi FROM uczniowie WHERE miejscowosc = Łódź
 12. wyświetl hobby które wystęoują u co najmniej 10 uczniów;
 
+
 SELECT hobby
 	COUNT(*) AS liczba_uczniow
 FROM uczniowie 
@@ -105,3 +106,16 @@ zrzuty ekranu podpisane i ponumerowane
 
 
 dodac kolumne ze zdj do tabeli uczniowie w domu i wyeksportowac i zobaczyc jaka jest roznica przed i po dodaniu zdjecia i wykonac back up z uzyciem mysql dump
+
+
+21. wysweitl imie i nazwisko ucznia w jednej kolumnie    		select id, CONCAT(imie, ' ', nazwisko) AS uczen from uczniowie;
+22. wyswietl imiona uczniów wielkimi literami 					select id, UPPER(imie) AS imie_duzymi_literami, nazwisko FROM uczniowie;
+23. wyswietl uczniow urodzonych w czerwcu 						select imie, nazwisko, data_urodzenia FROM uczniowie WHERE MONTH(data_urodzenia) = 6 ORDER BY data_urodzenia
+24. Oblicz wiek kazdego ucznia 									select imie, nazwisko, data_urodzenia, TIMESTAMPDIFF( YEAR, data_urodzenia, CURDATE()) AS wiek FROM uczniowie ORDER BY wiek DESC;
+	TIMESTAMPDIFF która oblicza różnicę między dwoma wartościami daty lub daty i czasu, zwracając wynik w określonej jednostce czasu.
+28. Wyświetl najstarszego i najmłodzsego ucznia według daty urodzenia  			select MIN(data_urodzenia) AS najstarszy, MAX(data_urodzenia) AS najmlodszy FROM uczniowie
+29.Wyświetl uczniów mieszkających w najliczniej reprezentowanej miejscowości	select imie, nazwisko, miejscowosc FROM uczniowie WHERE miejscowosc = ( SELECT miejscowosc FROM uczniowie GROUP BY miejscowosc ORDER BY COUNT(*) DESC, miejscowosc ASC LIMIT 1 ) ORDER BY nazwisko, imie
+31. Wyświetl uczniów, których imie ma 5 liter 					select id, imie, nazwisko FROM uczniowie WHERE CHAR_LENGTH(imie) = 5 ORDER BY imie
+32.wyświetl trzy ostatnie cyfry numeru telefonu					select imie, nazwisko RIGHT(telefon, 3) AS koncowka_telefonu FROM uczniowie ORDER BY nazwisko
+33.wyświetl nazwiska uczniów zapisane małymi literami			select imie LOWER(nazwisko) AS nazwisko_male_litery FROM uczniowie
+34.Wyświetl uczniów urodzonych w pierwszym kwartale roku		select imie, naziwsko, data_urodzenia FROm uczniowie WHERE MONTH(data_urodzenia) BETWEEN 1 AND 3 ORDER BBY data_urodzenia
