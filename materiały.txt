@@ -116,6 +116,7 @@ dodac kolumne ze zdj do tabeli uczniowie w domu i wyeksportowac i zobaczyc jaka 
 28. Wyświetl najstarszego i najmłodzsego ucznia według daty urodzenia  			select MIN(data_urodzenia) AS najstarszy, MAX(data_urodzenia) AS najmlodszy FROM uczniowie
 29.Wyświetl uczniów mieszkających w najliczniej reprezentowanej miejscowości	select imie, nazwisko, miejscowosc FROM uczniowie WHERE miejscowosc = ( SELECT miejscowosc FROM uczniowie GROUP BY miejscowosc ORDER BY COUNT(*) DESC, miejscowosc ASC LIMIT 1 ) ORDER BY nazwisko, imie
 31. Wyświetl uczniów, których imie ma 5 liter 					select id, imie, nazwisko FROM uczniowie WHERE CHAR_LENGTH(imie) = 5 ORDER BY imie
-32.wyświetl trzy ostatnie cyfry numeru telefonu					select imie, nazwisko RIGHT(telefon, 3) AS koncowka_telefonu FROM uczniowie ORDER BY nazwisko
-33.wyświetl nazwiska uczniów zapisane małymi literami			select imie LOWER(nazwisko) AS nazwisko_male_litery FROM uczniowie
+32.wyświetl trzy ostatnie cyfry numeru telefonu					select imie, nazwisko, RIGHT(telefon, 3) AS koncowka_telefonu FROM uczniowie ORDER BY nazwisko
+33.wyświetl nazwiska uczniów zapisane małymi literami			select imie, LOWER(nazwisko) AS nazwisko_male_litery FROM uczniowie
 34.Wyświetl uczniów urodzonych w pierwszym kwartale roku		select imie, naziwsko, data_urodzenia FROm uczniowie WHERE MONTH(data_urodzenia) BETWEEN 1 AND 3 ORDER BBY data_urodzenia
+35. Wyświetl datę urodzenia ucznia w formacie DD-MM-RRRR		select imie, nazwisko, DATE_FORMAT(data_urodzenia, '%d-%m-%Y') AS data_polska FROM uczniowie ORDER BY nazwisko
