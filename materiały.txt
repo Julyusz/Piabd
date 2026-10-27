@@ -120,3 +120,26 @@ dodac kolumne ze zdj do tabeli uczniowie w domu i wyeksportowac i zobaczyc jaka 
 33.wyświetl nazwiska uczniów zapisane małymi literami			select imie, LOWER(nazwisko) AS nazwisko_male_litery FROM uczniowie
 34.Wyświetl uczniów urodzonych w pierwszym kwartale roku		select imie, naziwsko, data_urodzenia FROm uczniowie WHERE MONTH(data_urodzenia) BETWEEN 1 AND 3 ORDER BBY data_urodzenia
 35. Wyświetl datę urodzenia ucznia w formacie DD-MM-RRRR		select imie, nazwisko, DATE_FORMAT(data_urodzenia, '%d-%m-%Y') AS data_polska FROM uczniowie ORDER BY nazwisko
+
+1. Dodaj jednego nowego ucznia podając wszystkie kolumny, w tym id 		INSERT INTO uczniowie (id, nazwisko, imie, data_urodzenia, miejscowosc, email) VALUES (1001, 'Kowalik', 'Mariusz', '2008-03-12', 'Kraków', 'k.mariusz@mail.com');
+2. Dodaj 2 uczniów jednym poleceniem 									INSERT INTO uczniowie (id, nazwisko, imie, data_urodzenia, miejscowosc, email) VALUES (1002, 'Kowalik', 'Arkadiusz', '2006-05-12', 'Kraków', 'k.arkadiusz@mail.com'), 
+(1003, 'Adamczyk', 'Adam', '2007-11-16', 'Warszawa', 'a.adamczyk@outlook.com');
+
+3. Dodaj ucznia bez podawania id 					INSERT INTO uczniowie (nazwisko, imie, data_urodzenia, miejscowosc, email) 
+VALUES 
+('Kowalski', 'Janusz', '2007-07-17', 'Kraków', 'k.janusz@mail.com');
+
+
+// metoda proceduralna
+<?php
+$host = "localhost";
+$user = "root";
+$password = "";
+$database = "4bgr1";
+$połączenie = mysqli_connect($host, $user, $password, $database);
+// próba połączenia
+if (!$połączenie) {
+    die("Błąd połączenia z bazą danych");
+}
+echo "Połączono z bazą danych";
+?>
