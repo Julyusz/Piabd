@@ -70,6 +70,10 @@ max() zanjduje maksymalna wartość
 SELECT COUNT(*) FROM uczniowie WHERE hobby = "informatyka"; //liczy ile ludzi ma hobby "informatyka", pokazuje sam wynik
 SELECT SUM(cena) AS calkowita_wartosc_aut FROM auto;  //sumuje ile warte są łącznie wszystkie auta z tabeli aut
 SELECT AVG(cena) AS srednia_cena FROM auto; //wypisuje jaka jest srednia wartość auta z tabeli auta
+ceil() - zaokrągla liczby ułamkowe w górę;
+floor() - zaokrągla liczby ułamkowe w dół;
+round() - zaokrągla liczby ułamkowe zgodnie z przyjętymi standardami;
+truncate() - odcina część ułamkową liczby lub zmienia do pełnych dziesiątek, setek itp.
 
 mysqladmin -uroot shutdown //*wylacza sewer
 mysqld --console	//*uruchomienie serwera mysql jako osobna aplikacje
@@ -143,3 +147,25 @@ if (!$połączenie) {
 }
 echo "Połączono z bazą danych";
 ?>
+
+
+Zapytanie 1: wstawiające do tabeli logowanienick „Jeremi” z hasłem „Jer123”. Wstawianemu wierszowi
+należy nadać identyfikator, odpowiadający wartości klucza obcego dla wiersza z danymi „Jeremi
+Kowalski” z tabeli uczestnicy:
+
+
+INSERT INTO logowanie (id, nick, haslo) VALUES ( 
+    (SELECT logowanie_id
+     FROM uczestnicy
+     WHERE imie = 'jeremi'
+     AND nazwisko = 'Kowalski'
+     ),
+    'Jeremi',
+    'Jer123'
+    );
+
+SELECT FLOOR(AVG(rokUr)) AS 'Średni rok urodzenia' FROM uczestnicy; 		//zaokrągla średni rok urodzenia osób z tabeli uczestnicy w dół do liczby całkowitej
+
+CREATE USER 'uczestnik'@'localhost' IDENTIFIED by 'Ucz123&'; 			//tworzy użytkownika uczestnik z hasłem Ucz123& na localhoście
+
+
