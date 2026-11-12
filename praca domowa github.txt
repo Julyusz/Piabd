@@ -1,0 +1,4 @@
+na swoim koncie github 
+1. projektujemy i uruchamiamy prostą stronę internetową (nagłówek, stopka, imie itp.)
+2. na stronie umieszczamy przycisk z dowolnym skryptem w php (nazwa jako index.php). Skrypt php ma wykonać dowolną operację na bazie danych.
+Przesyłamy link do strony z bazą danych oraz link do dokumentu pdf zawierającego opis procesu konfiguracji. Utworzyć serwer na GitHubie.
